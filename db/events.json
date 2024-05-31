@@ -1,0 +1,9 @@
+[
+    {
+        "id":1,
+        "title":"Concerto",
+        "description":"Concerto di musica Rock",
+        "date":"21/02/2014",
+        "maxSeats":100
+    }
+]
