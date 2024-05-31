@@ -6,7 +6,13 @@ const index = (req, res) => {
 }
 
 const store = (req, res) => {
+    const { id, title, description, date, maxSeats } = req.body;
+
+    const newEvents = new Event(id, title, description, date, maxSeats);
+
+    Event.add(newEvents);
     
+    res.redirect('/events');
 }
 
 const update = (req, res) => {
