@@ -30,6 +30,11 @@ class Event {
         const event = events.find(event => event.id === parseInt(id));
         return event
     }
+
+    static reservationsFiltered(reservations, id) {
+        const reservationsFiltered = reservations.filter(reservation => reservation.eventId === id);
+        return reservationsFiltered
+    }
 }
 
 module.exports = Event
