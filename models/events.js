@@ -1,3 +1,6 @@
+const path = require('path');
+const fs = require('fs');
+
 class Event {
     constructor(id, title, description, date, maxSeats) {
         this.id = id;
@@ -6,4 +9,17 @@ class Event {
         this.date = date;
         this.maxSeats = maxSeats;
     }
+    
+    static read() {
+        const filePath = path.join(__dirname, '../db/events.json');
+        const events = fs.readFileSync(filePath, "utf-8");
+        return JSON.parse(events);
+    }
+    
+    static add(newEvents){
+        const filePath = path.join(__dirname, '../db/events.json');
+        fs.writeFileSync(filePath, JSON.stringify([this.read(), newEvents]));
+    }
 }
+
+module.exports = Event
