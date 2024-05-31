@@ -19,7 +19,9 @@ Creiamo il model models/event.js e prevediamo le seguenti proprietà:
 - description
 - date
 - maxSeats (numero massimo di posti)
+
 Tramite dei metodi statici, facciamo in modo di poter leggere e salvare i dati su un file json dedicato.
+
 Un’istanza della classe rappresenterà un singolo evento.
 
 **Milestone 3**
