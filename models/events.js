@@ -18,7 +18,17 @@ class Event {
     
     static add(newEvents){
         const filePath = path.join(__dirname, '../db/events.json');
-        fs.writeFileSync(filePath, JSON.stringify([this.read(), newEvents]));
+        fs.writeFileSync(filePath, JSON.stringify([this.events(), newEvents]));
+    }
+
+    static events() {
+        return this.read();
+    }
+
+    static id(id) {
+        const events = this.events();
+        const event = events.find(event => event.id === parseInt(id));
+        return event
     }
 }
 
