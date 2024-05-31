@@ -8,12 +8,21 @@ const index = (req, res) => {
 
     if (titleFilter) {
         const event = events.filter(event => event.title.toLowerCase() === titleFilter);
-        return res.json(event);  
+
+        if (event == '') {
+            return res.status(404).json('non trovato')
+        }
+        return res.json(event);
+        
     }else if (dateFilter) {
         const event = events.filter(event => event.date === dateFilter);
+
+        if (dateFilter == '') {
+            return res.status(404).json('non trovato')
+        }
+
         return res.json(event);  
     }
-
 
     res.json(events);
 }
